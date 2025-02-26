@@ -1,6 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Use to keep track of a teacher's class that is made up with multiple students with assigned seats along
+ * with each student's section, ontime, late, excused, unexcused.
+ * @author jascha10, thebottleopener
+ * @since 2/26/2025
+ * @version 1.0 beta
+ * @see <a href="https://github.com/jascha10/AttendenceAppProject>Github Repository</a>
+ *
+ */
+
 public class Course {
 
     /*
