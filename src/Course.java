@@ -8,23 +8,21 @@ import java.util.List;
  * @since 2/26/2025
  * @version 1.0 beta
  * @see <a href="https://github.com/jascha10/AttendenceAppProject>Github Repository</a>
- *
  */
-
 public class Course {
 
-    /*
+    /**
     Gets course's name
      */
     private String name;
 
-    /*
+    /**
     Creates a list that stores all the students
      */
     private List<Student> allStudents;
 
-    /*
-    Sets the course name to unkown and creates an empty allStudent ArrayList.
+    /**
+    Sets the course name to "Unknown" and creates an empty allStudent ArrayList.
      */
     public Course() {
         name = "Unknown";
@@ -32,10 +30,19 @@ public class Course {
 
     }
 
+    /**
+     * Gets the name of the class
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Calls the default contsructor, and then set's the name using the setter for data validation
+     * @param name
+     * @throws Exception
+     */
     public void setName(String name) throws Exception {
         this.name = name;
     }
