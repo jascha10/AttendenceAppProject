@@ -1,6 +1,10 @@
 public class tester {
     public static void main(String[] args) throws Exception {
 
+
+        /**
+         * Testing Student class
+         */
         /*Student x1 = new Student(1, "Jacob");
         System.out.println(x1);
         x1.updateAttendance(1);
@@ -23,6 +27,10 @@ public class tester {
         //x1.setSeat(-1);
         x1.setSeat(5);
         System.out.println(x1);*/
+
+        /**
+         * testing course class
+         */
 
 
 
