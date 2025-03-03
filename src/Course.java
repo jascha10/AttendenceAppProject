@@ -53,9 +53,22 @@ public class Course {
         this.name = name;
     }
 
+    /**
+     * Get a student by their seat number using the ArrayList.indexof method <br>
+     * If the IndexOf method returns -1 then this method returns null otherwise, <br>
+     * it return the student object associated with the seat number.
+     * @param seat Student's seat number
+     * @return If a student is found, it will reutrn the student object otherwise a null value
+     * @throws Exception Creating a player with a invalid seat number could throw an error.
+     */
     public Student getStudent(int seat) throws Exception {
-        this.allStudents.get(seat);
-        return null;
+        int index = this.allStudents.indexOf(new Student(seat));
+        if (index == -1) {
+            throw new Exception("Student not found.");
+        }
+        else
+            return this.allStudents.get(index);
+
     }
 
     /**
