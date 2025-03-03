@@ -142,10 +142,11 @@ public class Student {
 
     /**
      * Returns a formatted string representation of the student's attendance record.
+     *
      * @return A string showing the attendance details.
      */
-    public String getAttendanceRecord() {
-        return "Seat#" + seat + " " + name + " (On Time=" + onTime + ", Late=" + late + ", Excused=" + excused + ", Unexcused=" + unexcused + ")";
+    public void displayAttendance() {
+        System.out.print("Seat#" + seat + " " + name + " (On Time=" + onTime + ", Late=" + late + ", Excused=" + excused + ", Unexcused=" + unexcused + ")");
     }
 
     /**

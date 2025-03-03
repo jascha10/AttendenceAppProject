@@ -35,15 +35,21 @@ public class Course {
      * @return
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
      * Calls the default contsructor, and then set's the name using the setter for data validation
-     * @param name
-     * @throws Exception
+     * @param name the course name
+     * @throws Exception if setName fails due to a blank name
      */
     public void setName(String name) throws Exception {
+        name = name.trim();
+
+        if (name.isBlank()) {
+            throw new Exception("Course name can not be blank.");
+        }
+
         this.name = name;
     }
 
