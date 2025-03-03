@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Use to keep track of a teacher's class that is made up with multiple students with assigned seats along
@@ -71,13 +72,30 @@ public class Course {
 
     }
 
+    public int getOnTime() {
+        int totalOnTime = 0;
+
+        for (Student student : this.allStudents) {
+            totalOnTime += student.getOnTime();
+        }
+        return totalOnTime;
+    }
+
+    public int getLate () {
+        int late = 0;
+        for (Student student : this.allStudents) {
+            late += student.getLate();
+        }
+        return late;
+    }
+
     /**
      * Adds a student to the list of all students, by using the overload constructor that allows setting
      * their name and seat number too.
      * This method will verify that the jersey number is not already used by another player by calling the
      * getStudent method, and if it is, then it will throw an exception back to the calling method.
-     * @param seat
-     * @param name
+     * @param seat Student's seat
+     * @param name Student's name
      * @throws Exception
      */
     public void addStudent(int seat, String name) throws Exception {
@@ -89,9 +107,39 @@ public class Course {
         }
     }
 
-
-
     public void displaySummaryReport() {
-        System.out.println("Section: " + this.getName() + " OnTime= "  + "Late= " + "Excused= " + "Unexcused= ");
+        System.out.println("Section: " + this.getName() + " OnTime= " + this.getOnTime() + "Late= " + this.getLate() + "Excused= " + "Unexcused= ");
+    }
+
+    /**
+     * Displays each student's seat number, number of ontime, lates, unexcused, and excused
+     * by using the Student's getter methods
+     */
+    public void displayDetailReport() {
+        Student student;
+
+        displaySummaryReport();
+
+        System.out.println("Seat Student         OnTime  Late  Unexcused  Excused");
+        System.out.println("==== =======         ======  ====  =========  =======");
+
+        for (Student value: allStudents) {
+
+            student = value;
+
+            System.out.printf("%6d %-15s %5d %3d %3d %3d %5d\n",
+                    student.getLate(),
+                    student.getExcused(),
+                    student.getName(),
+                    student.getSeat(),
+                    student.getOnTime());
+        }
+
+        System.out.println();
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
