@@ -146,7 +146,7 @@ public class Student {
      * @return A string showing the attendance details.
      */
     public void displayAttendance() {
-        System.out.print("Seat#" + seat + " " + name + " (On Time=" + onTime + ", Late=" + late + ", Excused=" + excused + ", Unexcused=" + unexcused + ")");
+        System.out.print("Seat #" + seat + " " + name + "\n" + "On Time=" + onTime + ", Late=" + late + ", Excused=" + excused + ", Unexcused=" + unexcused + "\n");
     }
 
     /**
