@@ -32,6 +32,10 @@ public class tester {
          * testing course class
          */
 
+        Student x1 = new Student(1, "Bobby");
+
+        x1.displayAttendance();
+
 
 
     }
