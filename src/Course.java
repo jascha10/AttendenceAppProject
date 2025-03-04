@@ -72,6 +72,10 @@ public class Course {
 
     }
 
+    /**
+     * Gets the student's amount of times the student was ontime to class and puts it in the arraylist.
+     * @return Total times that student was on time
+     */
     public int getOnTime() {
         int totalOnTime = 0;
 
@@ -81,6 +85,11 @@ public class Course {
         return totalOnTime;
     }
 
+
+    /**
+     * Gets the student's amount of times the student was late to class and puts it in the arraylist.
+     * @return the amount of times the student was late.
+     */
     public int getLate () {
         int late = 0;
         for (Student student : this.allStudents) {
@@ -107,6 +116,10 @@ public class Course {
         }
     }
 
+
+    /**
+     * Displays the report for each student's section, ontime, late, excused, and unexcused.
+     */
     public void displaySummaryReport() {
         System.out.println("Section: " + this.getName() + " OnTime= " + this.getOnTime() + "Late= " + this.getLate() + "Excused= " + "Unexcused= ");
     }
@@ -138,6 +151,10 @@ public class Course {
         System.out.println();
     }
 
+    /**
+     * Converts student's name to a string
+     * @return The student's name
+     */
     @Override
     public String toString() {
         return this.name;

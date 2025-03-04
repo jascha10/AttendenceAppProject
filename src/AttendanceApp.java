@@ -42,4 +42,39 @@ public class AttendanceApp {
         System.out.println(DOUBLE_LINE);
         System.out.println();
     }
+
+    private void setupCourses() throws Exception {
+        String userInput;
+
+        userInput = Input.getLine("Enter the course 1: ");
+        section1.setName(userInput);
+        setupCourses();
+
+        System.out.println();
+        System.out.println(SINGLE_LINE);
+        System.out.println();
+
+        userInput = Input.getLine("Enter the 2nd course: ");
+        section2.setName(userInput);
+        setupCourses();
+    }
+
+    private void setupSections() {
+
+    }
+    private void mainMenu() {
+
+    }
+    private void courseAttendence() {
+
+    }
+    private void studentAttendence() {
+
+    }
+    private void displayDetailReports() {
+
+    }
+    public static void main(String[] args) {
+
+    }
 }
