@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class AttendanceApp {
 
     /**
@@ -48,7 +50,6 @@ public class AttendanceApp {
 
         userInput = Input.getLine("Enter the course 1: ");
         section1.setName(userInput);
-        setupCourses();
 
         System.out.println();
         System.out.println(SINGLE_LINE);
@@ -56,7 +57,6 @@ public class AttendanceApp {
 
         userInput = Input.getLine("Enter the 2nd course: ");
         section2.setName(userInput);
-        setupCourses();
     }
 
     private void setupStudents(Course course) {
@@ -162,7 +162,8 @@ public class AttendanceApp {
 
         try {
             attend.setupCourses();
-            attend.setupStudents();
+            attend.setupStudents(attend.section1);
+            attend.setupStudents(attend.section2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Sorry but this program ended with an error. Please contact Jacob!");
