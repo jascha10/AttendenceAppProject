@@ -72,8 +72,8 @@ public class AttendanceApp {
                 return;
 
             try {
-                seat = Input.getIntRange("Enter " + name + "'s seat number: ", 0, 30); .
-                addStudent(name, seat);
+                seat = Input.getIntRange("Enter " + name + "'s seat number: ", 0, 30);
+                course.addStudent(seat, name);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 System.out.println("Unable to add student!");
@@ -114,7 +114,7 @@ public class AttendanceApp {
             switch (userInput) {
                 case 0:
                     playGame = false;
-                    updatedAttendence();
+                    courseAttendence();
                     System.out.println();
                     break;
 
@@ -122,17 +122,17 @@ public class AttendanceApp {
                 case 2:
 
                     if (userInput == 1)
-                        updateTeamStats(section1);
+                        courseAttendence();
                     else
-                        updateTeamStats(section2);
+                        courseAttendence();
 
                     System.out.println();
-                    updatedAttendence();
+                    courseAttendence();
                     System.out.println();
                     break;
 
                 case 3:
-                    displayGameStatus();
+                    displayAppHeading();
                     break;
 
                 default:
