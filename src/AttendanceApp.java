@@ -87,7 +87,7 @@ public class AttendanceApp {
 
         System.out.println();
         System.out.println(DOUBLE_LINE);
-        System.out.println("Game Started!");
+        System.out.println("Attendance App");
         System.out.println(DOUBLE_LINE);
         System.out.println();
 
@@ -99,9 +99,9 @@ public class AttendanceApp {
             System.out.println(SINGLE_LINE);
 
             System.out.println("0 = End Game");
-            System.out.println("1 = Enter " + section1.getName() + " Team's Stats");
-            System.out.println("2 = Enter " + section2.getName() + " Team's Stats");
-            System.out.println("3 = Display Game Stats");
+            System.out.println("1 = Enter " + section1.getName() + " Attendance Stats");
+            System.out.println("2 = Enter " + section2.getName() + " Attendance Stats");
+            System.out.println("3 = Display all Attendence Stats");
 
             System.out.println(SINGLE_LINE);
             userInput = Input.getIntRange("Menu Choice: ", 0, 3);
@@ -173,23 +173,23 @@ public class AttendanceApp {
         System.out.println();
 
         System.out.println(SINGLE_LINE);
-        System.out.println("Enter #" + student.getSeat() + " " + student.getName() + " Stats");
+        System.out.println("Enter " + student.getSeat() + " " + student.getName() + " attendance information");
         System.out.println(SINGLE_LINE);
 
-        System.out.println("0 = foul");
-        System.out.println("1 = free throw");
-        System.out.println("2 = 2pt field goal");
-        System.out.println("3 = 3pt field goal");
+        System.out.println("0 = End Attendance App");
+        System.out.println("1 = Take 9:00 am Attendance");
+        System.out.println("2 = Take 10:00 am Attendance");
+        System.out.println("3 = Display All Attendance Report");
 
         System.out.println(SINGLE_LINE);
-        type = Input.getIntRange("Enter Stat Type: ", 0, 3);
+        type = Input.getIntRange("Menu Choice: ", 0, 3);
         System.out.println(SINGLE_LINE);
 
         try {
             student.updateAttendance(type);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Unable to update player's stats!");
+            System.out.println("Unable to update students!");
         }
 
         student.displayAttendance();
