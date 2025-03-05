@@ -162,6 +162,7 @@ public class AttendanceApp {
 
         try {
             attend.setupCourses();
+            attend.mainMenu();
             attend.setupStudents(attend.section1);
             attend.setupStudents(attend.section2);
         } catch (Exception e) {
