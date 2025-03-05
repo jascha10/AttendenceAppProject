@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class AttendanceApp {
 
     /**
@@ -114,7 +112,7 @@ public class AttendanceApp {
             switch (userInput) {
                 case 0:
                     playGame = false;
-                    courseAttendence();
+                    courseAttendence(section1);
                     System.out.println();
                     break;
 
@@ -127,7 +125,7 @@ public class AttendanceApp {
                         courseAttendence(section2);
 
                     System.out.println();
-                    courseAttendence();
+                    courseAttendence(section1);
                     System.out.println();
                     break;
 
@@ -143,7 +141,7 @@ public class AttendanceApp {
 
     }// end of playGame
 
-    private void updateTeamStats(Course course) throws Exception {
+    private void updateCourseStats(Course course) throws Exception {
 
         int seat;
         Student student;
@@ -168,14 +166,14 @@ public class AttendanceApp {
 
     } // end of updateTeam
 
-    private void updatePlayerStats(Course course) {
+    private void updateStudentStats(Course course) {
         int type;
-        String student = "";
+        Student student = null;
 
         System.out.println();
 
         System.out.println(SINGLE_LINE);
-        System.out.println("Enter #" + student.getSeat() + " " +student.getName() + " Stats");
+        System.out.println("Enter #" + student.getSeat() + " " + student.getName() + " Stats");
         System.out.println(SINGLE_LINE);
 
         System.out.println("0 = foul");
@@ -188,24 +186,24 @@ public class AttendanceApp {
         System.out.println(SINGLE_LINE);
 
         try {
-            student.updateStats(type);
+            student.updateAttendance(type);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Unable to update player's stats!");
         }
 
-        student.displayStats();
+        student.displayAttendance();
 
     }
 
 
-    private void courseAttendence() {
-        section1.displaySummaryReport();
-        section2.displaySummaryReport();
+    private void courseAttendence(Course section) throws Exception {
+        this.section1.displaySummaryReport();
+        this.section2.displaySummaryReport();
     }
-    private void studentAttendence() {
-        section1.displayDetailReport();
-        section2.displayDetailReport();
+    private void studentAttendence(Course section) throws Exception {
+        this.section1.displayDetailReport();
+        this.section2.displayDetailReport();
     }
     private void displayDetailReports() {
 
@@ -219,8 +217,14 @@ public class AttendanceApp {
         try {
             attend.setupCourses();
             attend.mainMenu();
+            attend.studentAttendence(attend.section1);
+            attend.studentAttendence(attend.section2);
             attend.setupStudents(attend.section1);
             attend.setupStudents(attend.section2);
+            attend.updateCourseStats(attend.section1);
+            attend.updateCourseStats(attend.section2);
+            attend.updateStudentStats(attend.section1);
+            attend.updateStudentStats(attend.section2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Sorry but this program ended with an error. Please contact Jacob!");
