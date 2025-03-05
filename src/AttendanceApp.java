@@ -122,9 +122,9 @@ public class AttendanceApp {
                 case 2:
 
                     if (userInput == 1)
-                        courseAttendence();
+                        courseAttendence(section1);
                     else
-                        courseAttendence();
+                        courseAttendence(section2);
 
                     System.out.println();
                     courseAttendence();
@@ -141,7 +141,63 @@ public class AttendanceApp {
             } // end of switch
         }
 
-    } // end of playGame
+    }// end of playGame
+
+    private void updateTeamStats(Course course) throws Exception {
+
+        int seat;
+        Student student;
+
+        while (true) {
+            seat = Input.getIntRange("Enter " + course.getName() + "'s Jersey # ", 1, 55);
+
+            student = course.getStudent(seat);
+
+            if (student == null) {
+                System.out.println("Invalid #, please try again!");
+                continue;
+            }
+
+            course.addStudent(seat, student.getName());
+
+            break;
+        }
+
+        System.out.println();
+        System.out.println(SINGLE_LINE);
+
+    } // end of updateTeam
+
+    private void updatePlayerStats(Course course) {
+        int type;
+        String student = "";
+
+        System.out.println();
+
+        System.out.println(SINGLE_LINE);
+        System.out.println("Enter #" + student.getSeat() + " " +student.getName() + " Stats");
+        System.out.println(SINGLE_LINE);
+
+        System.out.println("0 = foul");
+        System.out.println("1 = free throw");
+        System.out.println("2 = 2pt field goal");
+        System.out.println("3 = 3pt field goal");
+
+        System.out.println(SINGLE_LINE);
+        type = Input.getIntRange("Enter Stat Type: ", 0, 3);
+        System.out.println(SINGLE_LINE);
+
+        try {
+            student.updateStats(type);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Unable to update player's stats!");
+        }
+
+        student.displayStats();
+
+    }
+
 
     private void courseAttendence() {
         section1.displaySummaryReport();
